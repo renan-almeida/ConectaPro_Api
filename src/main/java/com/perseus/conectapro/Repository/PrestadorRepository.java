@@ -13,3 +13,8 @@ public interface PrestadorRepository extends JpaRepository<Prestador, Integer> {
     List<Prestador> findByEspecialidadesContaining(String especialidade);
 
 }
+
+
+
+
+
