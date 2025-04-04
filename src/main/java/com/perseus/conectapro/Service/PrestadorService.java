@@ -46,7 +46,7 @@ public class PrestadorService {
         endereco = enderecoRepository.save(endereco);
 
         Prestador prestador = new Prestador();
-        prestador.setDocumento(prestadorDTO.getDocumento());
+        prestador.setCpf(prestadorDTO.getDocumento());
         prestador.setNome(prestadorDTO.getNome());
         prestador.setEmail(prestadorDTO.getEmail());
         prestador.setSenha(prestadorDTO.getSenha());

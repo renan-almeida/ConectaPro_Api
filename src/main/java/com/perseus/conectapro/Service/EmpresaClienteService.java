@@ -20,7 +20,7 @@ public class EmpresaClienteService {
     private EnderecoRepository enderecoRepository;
 
     public List<EmpresaCliente> consultarEmpresaPorNome(String nome) {
-        return empresaClienteRepository.findByNome(nome);
+        return empresaClienteRepository.findByName(nome);
     }
 
     //cadastrar as informaçoes alem do usuario, faltantes para uma empresa cliente
@@ -39,7 +39,7 @@ public class EmpresaClienteService {
         endereco = enderecoRepository.save(endereco);
         
         EmpresaCliente empresaCliente = new EmpresaCliente();
-        empresaCliente.setDocumento(empresaClienteCreateDTO.getDocumento());
+        empresaCliente.setCnpj(empresaClienteCreateDTO.getDocumento());
         empresaCliente.setNome(empresaClienteCreateDTO.getNome());
         empresaCliente.setEmail(empresaClienteCreateDTO.getEmail());
         empresaCliente.setSenha(empresaClienteCreateDTO.getSenha());
@@ -47,7 +47,7 @@ public class EmpresaClienteService {
         empresaCliente.setTipoUsuario(empresaClienteCreateDTO.getTipoUsuario());
         empresaCliente.setCaminhoFoto(empresaClienteCreateDTO.getCaminhoFoto());
 
-        empresaCliente.setCNPJ(empresaClienteCreateDTO.getCNPJ());
+        empresaCliente.setCnpj(empresaClienteCreateDTO.getCNPJ());
         empresaCliente.setRazaoSocial(empresaClienteCreateDTO.getRazaoSocial());
         empresaCliente.setNomeFantasia(empresaClienteCreateDTO.getNomeFantasia());
         empresaCliente.setEndereco(endereco);
@@ -73,7 +73,7 @@ public class EmpresaClienteService {
                 .orElseThrow(() -> new IllegalArgumentException("Empresa não encontrada!!"));
 
         if(empresaClienteUpdateDTO.getCNPJ() != null){
-            empresaExistente.setCNPJ(empresaClienteUpdateDTO.getCNPJ());
+            empresaExistente.setCnpj(empresaClienteUpdateDTO.getCNPJ());
         }
         if(empresaClienteUpdateDTO.getRazaoSocial() != null){
             empresaExistente.setRazaoSocial(empresaClienteUpdateDTO.getRazaoSocial());

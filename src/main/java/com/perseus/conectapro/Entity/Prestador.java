@@ -12,6 +12,10 @@ import java.util.Set;
 @Getter
 @Setter
 public class Prestador extends Usuario {
+
+    @Column(name = "CPF")
+    private String cpf;
+
     @Column(name = "DESC_PRESTADOR")
     private String descPrestador;
 
@@ -33,5 +37,7 @@ public class Prestador extends Usuario {
 
     @OneToMany(mappedBy = "idPrestador")
     private List<Servico> servicos;
+
+
 }
 
